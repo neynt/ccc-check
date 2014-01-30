@@ -7,8 +7,7 @@ for infile in $(find $curdir/$2.*.in); do
     casenum=${casenum##*/}
     echo -n "### $casenum: "
     
-    chmod +x $1
-    ./$1 < $infile | tee yolo | diff - $outfile > /dev/null
+    $1 < $infile | tee /tmp/ccc-check | diff - $outfile > /dev/null
 
     if [ $? -ne 0 ]; then
         echo "failed."
@@ -17,7 +16,7 @@ for infile in $(find $curdir/$2.*.in); do
         echo "expected output:"
         cat $outfile
         echo "actual output:"
-        cat yolo
+        cat /tmp/ccc-check
     else
         echo "correct!"
     fi
