@@ -4,7 +4,7 @@ Bash script that grades CCC solutions.
 
 To use:
 
-`ccc-check.sh "command line to run" [year]/[contest]`
+`ccc-check.sh "command line to run" [year]/[problem]`
 
 e.g.
 
